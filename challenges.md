@@ -6,9 +6,9 @@ I’ll mark them as ✅ when completed.
 ---
 
 ## ✅ Login & Authentication
-- [ ] **Challenge 1:** Valid Login (standard_user / secret_sauce → Products page)  
-- [ ] **Challenge 2:** Invalid Login (wrong creds → error message)  
-- [ ] **Challenge 3:** Locked Out User (locked_out_user → blocked login)  
+- [X] **Challenge 1:** Valid Login (standard_user / secret_sauce → Products page)  
+- [X] **Challenge 2:** Invalid Login (wrong creds → error message)  
+- [X] **Challenge 3:** Locked Out User (locked_out_user → blocked login)  
 
 ---
 

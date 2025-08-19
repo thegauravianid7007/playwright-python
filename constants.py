@@ -1,0 +1,8 @@
+BASE_URL = "base_url"
+USERNAME = "username"
+PASSWORD = "password"
+INVALID_USERNAME = "invalid_username"
+INVALID_PASSWORD = "invalid_password"
+LOCKED_USERNAME = "locked_out_username"
+LOCKED_USER_PASSWORD = "locked_out_user_password"
+INVENTORY_URL = "inventory.html"
