@@ -1,7 +1,7 @@
 import pytest
 from playwright.sync_api import sync_playwright
 from utils.JSONReader import JSONReader
-import constants
+import constants.auth as auth
 
 @pytest.fixture(scope="session")
 def browser():
@@ -24,4 +24,4 @@ def read_credentials() -> dict:
 
 @pytest.fixture(scope="function")
 def get_base_url(read_credentials) -> str:
-    return read_credentials[constants.BASE_URL]
+    return read_credentials[auth.BASE_URL]

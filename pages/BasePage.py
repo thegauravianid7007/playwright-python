@@ -39,5 +39,5 @@ class BasePage:
         self.page.locator(self.logout_left_menu).wait_for(state = "visible")
 
     def logout_user(self):
-        self.page.locator(self.logout_left_menu).wait_for(state = "visible")
+        #self.page.locator(self.logout_left_menu).wait_for(state = "visible")
         self.page.locator(self.logout_left_menu).click()
