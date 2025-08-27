@@ -1,5 +1,6 @@
 from playwright.sync_api import Page
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+from playwright.sync_api import expect
 import time
 
 
@@ -41,3 +42,19 @@ class BasePage:
     def logout_user(self):
         #self.page.locator(self.logout_left_menu).wait_for(state = "visible")
         self.page.locator(self.logout_left_menu).click()
+
+    def wait_for_element_contains_text(self, locator: str, text: str, timeout: int = 5, poll_time: float = 0.5):
+        end_time = time.time() + timeout
+        while time.time() < end_time:
+            try:
+                element = self.page.locator(locator)
+                if element.is_visible():
+                    current_text = element.inner_text().strip()
+                    if text in current_text:
+                        return True
+            except Exception:
+                pass
+            time.sleep(poll_time)
+
+        return False
+

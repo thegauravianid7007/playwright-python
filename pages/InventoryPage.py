@@ -7,22 +7,32 @@ class InventoryPage(BasePage):
         self.page = page
 
     product_add_to_cart_locators = {
-        products.BACKPACK: "#add-to-cart-sauce-labs-backpack",
-        products.BIKE_LIGHT: "#add-to-cart-sauce-labs-bike-light",
-        products.BOLT_TSHIRT: "#add-to-cart-sauce-labs-bolt-t-shirt",
-        products.FLEECE_JACKET: "#add-to-cart-sauce-labs-fleece-jacket",
-        products.ONESIE: "#add-to-cart-sauce-labs-onesie",
+        products.BACKPACK: "[data-test='add-to-cart-sauce-labs-backpack']",
+        products.BIKE_LIGHT: "[data-test='add-to-cart-sauce-labs-bike-light']",
+        products.BOLT_TSHIRT: "[data-test='add-to-cart-sauce-labs-bolt-t-shirt']",
+        products.FLEECE_JACKET: "[data-test='add-to-cart-sauce-labs-fleece-jacket']",
+        products.ONESIE: "[data-test='add-to-cart-sauce-labs-onesie']",
         products.RED_TSHIRT: "[data-test='add-to-cart-test.allthethings()-t-shirt-(red)']",
     }
 
     cart_count_locator = "//span[contains(@class,'shopping_cart_badge')]"
+    open_cart_button = "[data-test='shopping-cart-link']"
 
     def add_item_to_cart(self, item_name: str):
         locator = self.product_add_to_cart_locators[item_name]
+        if not locator:
+            raise ValueError(f"No locator found for {item_name}")
         self.page.locator(locator).click()
 
     def get_cart_count(self) -> int:
         print(f"Cart count is {self.page.locator(self.cart_count_locator).inner_text()}")
         self.page.locator(self.cart_count_locator).wait_for(state="visible")
         return int(self.page.locator(self.cart_count_locator).inner_text())
+
+    def open_cart(self):
+        self.page.locator(self.open_cart_button).wait_for(state = "visible")
+        self.page.locator(self.open_cart_button).click()
+
+
+
 
