@@ -27,3 +27,11 @@ def test_add_items_to_cart(page, product_data, read_credentials, get_base_url):
     cart_items = cart_page.get_cart_items()
     for product_item in product_data["names"]:
         assert any(product_item.lower() in actual.lower() for actual in cart_items)
+
+    cart_page.click_continue_shopping()
+    assert inventory_page.wait_for_shopping_page_to_open() is True
+
+    for product in product_data["names"]:
+        inventory_page.remove_product_from_cart(product)
+
+    assert inventory_page.get_cart_count() == 0

@@ -14,7 +14,7 @@ I’ll mark them as ✅ when completed.
 
 ## 🛒 Product & Cart
 - [X] **Challenge 4:** Add Single Product to Cart (verify cart badge `1`)  
-- [ ] **Challenge 5:** Add & Remove Multiple Products (cart badge updates)  
+- [X] **Challenge 5:** Add & Remove Multiple Products (cart badge updates)  
 - [ ] **Challenge 6:** Cart Persistence (logout/login → cart should reset)  
 
 ---

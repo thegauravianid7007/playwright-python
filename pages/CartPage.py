@@ -3,6 +3,8 @@ class CartPage(BasePage):
     page_title_locator = "[data-test='title']"
     expected_page_title = "Your Cart"
     cart_items_locator = "[data-test='inventory-item']"
+    continue_shopping_locator = "[data-test='continue-shopping']"
+
     def __init__(self, page):
         super().__init__(page)
         self.page = page
@@ -13,3 +15,6 @@ class CartPage(BasePage):
     def get_cart_items(self) -> list[str]:
         elements = self.page.locator(self.cart_items_locator).all_inner_texts()
         return [e.strip() for e in elements]
+
+    def click_continue_shopping(self):
+        self.page.locator(self.continue_shopping_locator).click()
